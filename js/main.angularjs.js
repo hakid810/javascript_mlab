@@ -15,7 +15,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.searchMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "hakid810";
         queryObj.col = "memo";
         queryObj.sortCriteria = '{"reg_date": -1}';
         queryObj.queryCriteria = '{"title": {"$regex": "' + ($scope.searchKeyword || '') + '"}}';
@@ -36,7 +36,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.addMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "hakid810";
         queryObj.col = "memo";
         queryObj.insertObj = {"title": $scope.selectedTitle, "contents": $scope.selectedContents, "reg_date": {"$date": new Date().toISOString()}};
         mlabMongoDbHelper.addDocument(queryObj, function() {
@@ -47,7 +47,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.updateMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "hakid810";
         queryObj.col = "memo";
         queryObj._id = $scope.selectedId;
         queryObj.updateObj = {"title": $scope.selectedTitle, "contents": $scope.selectedContents, "reg_date": {"$date": new Date().toISOString()}};
@@ -59,7 +59,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.deleteMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "hakid810";
         queryObj.col = "memo";
         queryObj._id = $scope.selectedId;
         mlabMongoDbHelper.deleteDocument(queryObj, function() {
